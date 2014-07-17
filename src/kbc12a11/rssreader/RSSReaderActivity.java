@@ -13,7 +13,8 @@ import android.widget.ListView;
 
 public class RSSReaderActivity extends ListActivity {
 
-	public static final String RSS_FEED_URL = "http://itpro.nikkeibp.co.jp/rss/ITpro.rdf";
+//	public static final String RSS_FEED_URL = "http://itpro.nikkeibp.co.jp/rss/ITpro.rdf";
+	public static final String RSS_FEED_URL = "http://himasoku.com/index.rdf";
 	
 	private ArrayList<Item> mItems;
 	private RSSListAdapter mAdapter;
