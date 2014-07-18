@@ -2,6 +2,8 @@ package kbc12a11.rssreader;
 
 import java.util.ArrayList;
 
+import kbc12a11.parser.RssParserTask;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.app.ListActivity;
@@ -13,8 +15,8 @@ import android.widget.ListView;
 
 public class RSSReaderActivity extends ListActivity {
 
-//	public static final String RSS_FEED_URL = "http://itpro.nikkeibp.co.jp/rss/ITpro.rdf";
-	public static final String RSS_FEED_URL = "http://himasoku.com/index.rdf";
+	public static final String RSS_FEED_URL = "http://itpro.nikkeibp.co.jp/rss/ITpro.rdf";
+//	public static final String RSS_FEED_URL = "http://himasoku.com/index.rdf";
 	
 	private ArrayList<Item> mItems;
 	private RSSListAdapter mAdapter;

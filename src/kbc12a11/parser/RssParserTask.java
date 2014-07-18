@@ -1,8 +1,12 @@
-package kbc12a11.rssreader;
+package kbc12a11.parser;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+
+import kbc12a11.rssreader.Item;
+import kbc12a11.rssreader.RSSListAdapter;
+import kbc12a11.rssreader.RSSReaderActivity;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;

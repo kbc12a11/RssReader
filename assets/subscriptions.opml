@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.1">
+  <head>
+    <title>The Old Reader</title>
+    <dateCreated>Fri, 18 Jul 2014 04:53:19 GMT</dateCreated>
+    <dateModified>Fri, 18 Jul 2014 04:53:19 GMT</dateModified>
+    <ownerName>Kbc12a11</ownerName>
+    <ownerEmail>kbc12a11@stu.kawahara.ac.jp</ownerEmail>
+  </head>
+  <body>
+    <outline title="Subscriptions" text="Subscriptions">
+      <outline type="rss" title="ASCII.jp － トップ" text="ASCII.jp － トップ" htmlUrl="http://ascii.jp/cate/1/" xmlUrl="http://rss.rssad.jp/rss/ascii/rss.xml"/>
+      <outline type="rss" title="GIGAZINE" text="GIGAZINE" htmlUrl="http://gigazine.net/" xmlUrl="http://feed.rssad.jp/rss/gigazine/rss_2.0"/>
+      <outline type="rss" title="かみんぐあうとっ" text="かみんぐあうとっ" htmlUrl="http://d.hatena.ne.jp/komoko-i/" xmlUrl="http://d.hatena.ne.jp/komoko-i/rss"/>
+      <outline type="rss" title="アイデアハッカー" text="アイデアハッカー" htmlUrl="http://ideahacker.net" xmlUrl="http://ideahacker.net/feed/"/>
+      <outline type="rss" title="カラパイア" text="カラパイア" htmlUrl="http://karapaia.livedoor.biz/" xmlUrl="http://karapaia.livedoor.biz/index.rdf"/>
+      <outline type="rss" title="ITpro 最新ニュース" text="ITpro 最新ニュース" htmlUrl="http://itpro.nikkeibp.co.jp/news/" xmlUrl="http://itpro.nikkeibp.co.jp/rss/news.rdf"/>
+    </outline>
+    <outline title="Market" text="Market">
+      <outline type="rss" title="市況かぶ全力２階建" text="市況かぶ全力２階建" htmlUrl="http://kabumatome.doorblog.jp/" xmlUrl="http://kabumatome.doorblog.jp/index.rdf"/>
+      <outline type="rss" title="日本経済新聞　マーケット" text="日本経済新聞　マーケット" htmlUrl="http://www.nikkei.com/news/category/bn=41;at=DGXZZO0195576008122009000000" xmlUrl="http://www.zou3.net/php/rss/nikkei2rss.php?head=market"/>
+    </outline>
+    <outline title="ポケモン" text="ポケモン">
+      <outline type="rss" title="ポケセン～ポケモン専用まとめブログ～" text="ポケセン～ポケモン専用まとめブログ～" htmlUrl="http://pokesen.com/" xmlUrl="http://pokesen.com/index.rdf"/>
+    </outline>
+    <outline title="2ch" text="2ch">
+      <outline type="rss" title="DAW速報" text="DAW速報" htmlUrl="http://dawsoku.ldblog.jp/" xmlUrl="http://dawsoku.ldblog.jp/index.rdf"/>
+      <outline type="rss" title="宇宙＆物理2chまとめ" text="宇宙＆物理2chまとめ" htmlUrl="http://uchu2ch.blog.fc2.com/" xmlUrl="http://uchu2ch.blog.fc2.com/?xml"/>
+      <outline type="rss" title="暇人＼(^o^)／速報" text="暇人＼(^o^)／速報" htmlUrl="http://himasoku.com/" xmlUrl="http://himasoku.com/index.rdf"/>
+      <outline type="rss" title="架空の妹があらわれた！" text="架空の妹があらわれた！" htmlUrl="http://sister.otaden.jp" xmlUrl="http://sister.otaden.jp/index.rdf"/>
+    </outline>
+    <outline title="技術" text="技術">
+      <outline type="rss" title="ガジェット速報" text="ガジェット速報" htmlUrl="http://ggsoku.com" xmlUrl="http://ggsoku.com/feed/"/>
+      <outline type="rss" title="RAW-Fi" text="RAW-Fi" htmlUrl="http://raw-fi.com/feed.rss" xmlUrl="http://raw-fi.com/feed.rss"/>
+    </outline>
+    <outline title="漫画" text="漫画">
+      <outline type="rss" title="徒然チルドレン" text="徒然チルドレン" htmlUrl="http://tsuredurechildren.com/" xmlUrl="http://tsuredurechildren.com/?xml"/>
+    </outline>
+  </body>
+</opml>

@@ -35,6 +35,7 @@ public class ItemDetailActivity extends Activity {
 		mWeb.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
 		mWeb.getSettings().setLoadWithOverviewMode(true);
 		mWeb.getSettings().setUseWideViewPort(true);
+		mWeb.getSettings().setBuiltInZoomControls(true);
 		
 		mWeb.setWebViewClient(new WebViewClient() {
             

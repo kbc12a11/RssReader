@@ -7,5 +7,8 @@
     
     <!-- メニュー表示用 -->
     <string name="menu_reload">更新</string>
+    
+    <!-- 設定画面用 -->
+    <string name="settings_base_title">設定</string>
 
 </resources>
