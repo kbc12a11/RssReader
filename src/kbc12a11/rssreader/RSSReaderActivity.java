@@ -2,6 +2,7 @@ package kbc12a11.rssreader;
 
 import java.util.ArrayList;
 
+import kbc12a11.feedselect.RssFeedSelectTask;
 import kbc12a11.parser.RssParserTask;
 
 import android.os.Bundle;
@@ -12,11 +13,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class RSSReaderActivity extends ListActivity {
 
 	public static final String RSS_FEED_URL = "http://itpro.nikkeibp.co.jp/rss/ITpro.rdf";
 //	public static final String RSS_FEED_URL = "http://himasoku.com/index.rdf";
+	
+	private String rssTitle;
+	private String rssFeedUrl;
 	
 	private ArrayList<Item> mItems;
 	private RSSListAdapter mAdapter;
@@ -30,11 +35,27 @@ public class RSSReaderActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		rssTitle = null;
+		rssFeedUrl = null;
+		
+		Intent intent = getIntent();
+		rssTitle = intent.getStringExtra(RssFeedSelectTask.PARSE_TITLE);
+		rssFeedUrl = intent.getStringExtra(RssFeedSelectTask.PARSE_XML_URL);
+		
+		if (rssTitle == null || rssFeedUrl == null) {
+			Toast.makeText(
+                    getApplicationContext(),
+                    "error: Failed to load RSS.",
+                    Toast.LENGTH_LONG)
+                    .show();
+			finish();
+		}
+		
 		mItems = new ArrayList<Item>();
 		mAdapter = new RSSListAdapter(this, mItems);
 
 		RssParserTask task = new RssParserTask(this, mAdapter);
-		task.execute(RSS_FEED_URL);
+		task.execute(rssFeedUrl);
 
 	}
 	

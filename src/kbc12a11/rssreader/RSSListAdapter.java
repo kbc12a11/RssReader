@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
@@ -41,6 +43,10 @@ public class RSSListAdapter extends ArrayAdapter<Item> {
 			mDescr = (TextView) view.findViewById(R.id.item_descr);
 			mDescr.setText(descr);
 		}
+		
+		Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.list_item_motion);
+		view.startAnimation(anim);
+		
 		return view;
 	}
 }

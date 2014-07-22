@@ -21,6 +21,13 @@ import android.widget.SimpleExpandableListAdapter;
 public class RssFeedSelectTask extends AsyncTask<String, Integer, SimpleExpandableListAdapter>{
 	private RssFeedSelectActivity mActivity;
 	private ProgressDialog mDialog;
+	
+	public static final String PARSE_TYPE = "type";
+	public static final String PARSE_TITLE = "title";
+	public static final String PARSE_HTML_URL = "htmlUrl";
+	public static final String PARSE_XML_URL = "xmlUrl";
+	public static final String PARSE_RSS = "rss";
+	public static final String PARSE_OUTLINE = "outline";
 
 	public RssFeedSelectTask(RssFeedSelectActivity activity) {
 		mActivity = activity;
@@ -66,29 +73,29 @@ public class RssFeedSelectTask extends AsyncTask<String, Integer, SimpleExpandab
 				case XmlPullParser.START_TAG:
 
 					tag = parser.getName();
-					if ("outline".equals(tag)) {
-						String type = parser.getAttributeValue(null, "type");
-						if (!"rss".equals(type)) {//カテゴリのアウトラインだった場合
+					if (PARSE_OUTLINE.equals(tag)) {
+						String type = parser.getAttributeValue(null, PARSE_TYPE);
+						if (!PARSE_RSS.equals(type)) {//カテゴリのアウトラインだった場合
 							//カテゴリ名の登録
 							Map<String, String> ct = new HashMap<String, String>();
-							ct.put("title", parser.getAttributeValue(null, "title"));
+							ct.put(PARSE_TITLE, parser.getAttributeValue(null, PARSE_TITLE));
 							category.add(ct);
 
 							childItem = new ArrayList<Map<String, String>>();
 						}else {//rssのアウトラインだった場合
 							Map<String, String> ctItem = new HashMap<String, String>();
 							ctItem = new HashMap<String, String>();
-							ctItem.put("title", parser.getAttributeValue(null, "title"));
-							ctItem.put("htmlUrl", parser.getAttributeValue(null, "htmlUrl"));
-							ctItem.put("xmlUrl", parser.getAttributeValue(null, "xmlUrl"));
+							ctItem.put(PARSE_TITLE, parser.getAttributeValue(null, PARSE_TITLE));
+							ctItem.put(PARSE_HTML_URL, parser.getAttributeValue(null, PARSE_HTML_URL));
+							ctItem.put(PARSE_XML_URL, parser.getAttributeValue(null, PARSE_XML_URL));
 							childItem.add(ctItem);
 						}
 					}
 					break;
 
 				case XmlPullParser.END_TAG:
-					if ("outline".equals(parser.getName()) &&
-							!"rss".equals(parser.getAttributeValue(null, "type"))) {
+					if (PARSE_OUTLINE.equals(parser.getName()) &&
+							!PARSE_RSS.equals(parser.getAttributeValue(null, PARSE_TYPE))) {
 						childlen.add(childItem);
 					}
 					break;
@@ -96,22 +103,23 @@ public class RssFeedSelectTask extends AsyncTask<String, Integer, SimpleExpandab
 				eventType = parser.next();
 			}
 			
-			int i = 0;
-			for (List<Map<String, String>> list : childlen) {
-				int j = 0;
-				for (Map<String, String> map : list) {
-					Log.e(i+"-"+j, map.get("title"));
-					j++;
-				}
-				i++;
-			}
+			//デバッグ
+//			int i = 0;
+//			for (List<Map<String, String>> list : childlen) {
+//				int j = 0;
+//				for (Map<String, String> map : list) {
+//					Log.e(i+"-"+j, map.get("title"));
+//					j++;
+//				}
+//				i++;
+//			}
 
 			mAdapter = new SimpleExpandableListAdapter(
 					mActivity, category,
 					android.R.layout.simple_expandable_list_item_1,
-					new String[] { "title" }, new int[] { android.R.id.text1 },
+					new String[] { PARSE_TITLE }, new int[] { android.R.id.text1 },
 					childlen, android.R.layout.simple_expandable_list_item_2,
-					new String[] { "title", "htmlUrl", "xmlUrl"}, new int[] {
+					new String[] { PARSE_TITLE, PARSE_HTML_URL, PARSE_XML_URL}, new int[] {
 							android.R.id.text1, android.R.id.text2 , android.R.id.text2});
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 import kbc12a11.rssreader.R;
+import kbc12a11.rssreader.RSSReaderActivity;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ExpandableListAdapter;
 import android.widget.ExpandableListView;
@@ -14,6 +16,7 @@ import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.SimpleExpandableListAdapter;
 import android.widget.Toast;
+import android.util.Log;
 import android.view.View;
 
 public class RssFeedSelectActivity extends Activity{
@@ -49,9 +52,23 @@ public class RssFeedSelectActivity extends Activity{
 	                // トーストとして表示
 	                Toast.makeText(
 	                        getApplicationContext(),
-	                        "child clicked " + item.get("TITLE") + " "
-	                                + item.get("SUMMARY"), Toast.LENGTH_LONG)
+	                        "child clicked " + item.get("title") + " "
+	                                + item.get("htmlUrl") + " " + item.get("xmlUrl"), Toast.LENGTH_LONG)
 	                        .show();
+	                
+	                Intent intent = new Intent(RssFeedSelectActivity.this,
+	                		RSSReaderActivity.class);
+	                
+	                String title = item.get(RssFeedSelectTask.PARSE_TITLE);
+	                intent.putExtra(RssFeedSelectTask.PARSE_TITLE, title);
+	                
+	                String htmlUrl = item.get(RssFeedSelectTask.PARSE_HTML_URL);
+	                intent.putExtra(RssFeedSelectTask.PARSE_HTML_URL, htmlUrl);
+	                
+	                String xmlUrl = item.get(RssFeedSelectTask.PARSE_XML_URL);
+	                intent.putExtra(RssFeedSelectTask.PARSE_XML_URL, xmlUrl);
+	                
+	                startActivity(intent);
 	                return false;
 	            }
 	        });
